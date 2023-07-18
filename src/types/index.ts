@@ -64,7 +64,7 @@ export interface IRecipe {
 	food_pairing: Array<string>,
 	brewers_tips: string,
 	contributed_by: string,
- }
+}
 
 export interface RecipeState {
 	recipes: IRecipe[];

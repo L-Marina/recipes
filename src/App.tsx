@@ -1,19 +1,10 @@
-import {useEffect} from 'react';
-import { useAppDispatch, useAppSelector} from './hooks';
-import { fetchRecipes } from './store/reducers/recipesSlice';
-import RecipesList from './components/RecipesList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Recipes from './components/Recipes';
+import Layout from './components/Layout';
 
 
 function App() {
-
-	const dispatch = useAppDispatch();
-
-	const {loading, error} = useAppSelector(state => state.recipes);
-	
-	useEffect( () => {
-		dispatch(fetchRecipes() );
-	}, [dispatch]);
 
 
 	// useEffect( () => {
@@ -32,13 +23,14 @@ function App() {
 	// }
 
   	return (
-		<div className="recipes">
-
-				{loading && <h1>Loading...</h1>}
-				{error && <h1>An error occurred: {error}</h1>}
-
-				<RecipesList/>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Layout/>}>
+					<Route path='/recipes' element={<Recipes />}></Route>
+				</Route>
+			</Routes>
+    </BrowserRouter>
+		
   );
 }
 

@@ -5,14 +5,12 @@ interface RecipeState  {
 	recipesList: IRecipe[];
 	loading: boolean;
 	error: null | string;
-	page: number;
 }
 
 const initialState: RecipeState = {
 	recipesList: [],
 	loading: false,
 	error: null,
-	page: 1,
 }
 
 export const fetchRecipes = createAsyncThunk<IRecipe[], undefined, {rejectValue: string}>(
@@ -35,8 +33,8 @@ export const recipesSlice = createSlice({
 		initialState,
 		reducers: {
 			removeRecipes (state, action: PayloadAction<number>) {
-				state.recipesList = state.recipesList.filter(recipe => recipe.id !== action.payload)
-			}
+				state.recipesList = state.recipesList.filter(recipe => recipe.id !== action.payload);
+			},
 		},
 	
 		extraReducers: {
@@ -57,6 +55,7 @@ export const recipesSlice = createSlice({
 		}
 	}
 )
+
 export const {removeRecipes} = recipesSlice.actions
 
 export default recipesSlice.reducer;
