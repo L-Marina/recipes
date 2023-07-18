@@ -7,7 +7,7 @@ const RecipesList = () => {
 	return (
 		<ul >
 			{recipes.filter((recipe, index) => index < 15 )
-				.map ((recipe, length) => {
+				.map ((recipe, index) => {
 						return (
 								<RecipesItem
 									key={recipe.id}
