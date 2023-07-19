@@ -56,6 +56,6 @@ export const recipesSlice = createSlice({
 	}
 )
 
-export const {removeRecipes} = recipesSlice.actions
+export const {removeRecipes} = recipesSlice.actions;
 
 export default recipesSlice.reducer;
