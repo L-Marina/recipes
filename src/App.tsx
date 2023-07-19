@@ -2,36 +2,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Recipes from './components/Recipes';
 import Layout from './components/Layout';
+import Recipe from './components/Recipe';
 
 
-function App() {
-
-
-	// useEffect( () => {
-	// 	document.addEventListener('scroll', scrollHandler)
-
-	// 	return function() {
-	// 		document.removeEventListener('scroll', scrollHandler)
-	// 	};
-	// }, [])
-
-	// const scrollHandler = (e: any) => {
-	// 	if(e.target.documentElement.scrollHeight - ( e.target.documentElement.scrollTop + window.innerHeight) < 100
-	// 		&& recipes.length < totalCount) {
-	// 		setFetching(true)
-	// 	}	
-	// }
+const App = () => {
 
   	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Layout/>}>
-					<Route path='/recipes' element={<Recipes />}></Route>
+					<Route path='recipes' element={<Recipes />}/>
+					<Route path='recipes/:id' element={<Recipe/>}/>
+					<Route path='*' element={<h1>Not found Page</h1>}/>
 				</Route>
 			</Routes>
-    </BrowserRouter>
-		
-  );
+		</BrowserRouter>
+	)
 }
 
 export default App;
