@@ -1,5 +1,5 @@
 .header {
-	background-color:  rgb(16, 184, 114);
+	background-color: #b6303d;
 	width: 100%;
 	min-height: 50px;
 }
@@ -25,12 +25,14 @@
 
 
 @media(max-width:500px){
+	.header {
+		min-height: 30px;
+	}
 	.wrapper {
 		display: flex;
 		flex-direction:column;
 		justify-content: center;
 		margin-top: 10px;
-		
 	}
 }
 
@@ -47,45 +49,47 @@
 	}
 }
 
-.item a {
-	display: block;
-	margin: 10px;
-	padding: 5px;
-	color: rgb(255, 230, 0);
-	border: 1px solid rgba(4, 4, 49, 0.726);
-	border-radius: 20px;
-	text-decoration: none;
-}
+
 
 .item a.active {
-	color:  rgb(17, 70, 48);
+	color: rgba(4, 4, 49, 0.726);
 	font-weight: bold;
 	border-color: rgba(4, 4, 49, 0.726) ;
 }
 
 .item a:hover {
-	color:red;
+	color: rgb(255, 230, 0);
 	box-shadow: 5px 0 5px rgb(15, 22, 58);
 }
-
+.item a {
+	display: block;
+	margin: 10px;
+	padding: 5px;
+	color: rgb(255, 230, 0); 
+	border: 2px solid rgba(4, 4, 49, 0.726);
+	border-radius: 20px;
+	text-decoration: none;
+}
 .recipes {
 	margin: 10px;
 }
 
 h1 {
 	font-size: 24px;
-	color:rgb(17, 70, 48);
+	color:rgb(15, 22, 58);
 	text-align: center;
 }
 
 li {
 	list-style-type: none;
+	margin: 10px;
+	padding: 5px;
 	min-height: 60px;
 }
 
 .link {
 	text-decoration: none;
-	color:rgb(17, 70, 48);
+	color:rgba(4, 4, 49, 0.726);
 }
 
 .link:hover {
@@ -95,21 +99,25 @@ li {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
 }
 
 .btn {
 	margin: 10px;
 	color:rgb(255, 230, 0);
-	background-color: rgb(16, 184, 114) ;
+	background-color:rgba(4, 4, 49, 0.726) ;
 	border-radius: 10px;
 	cursor: pointer;
 }
 
 .btn:hover {
 	transform: scaleY(1.2);
-	color: rgb(16, 184, 114);
-	background-color:rgb(255, 230, 0);
+	color:rgba(4, 4, 49, 0.726);
+	background-color: #b6303d;
+	box-shadow: 5px 0 5px rgb(15, 22, 58);
+}
+
+input {
+	margin-right: 10px;
 }
 
 input + span {
@@ -117,7 +125,8 @@ input + span {
 }
 
 .footer{
-	background-color: rgb(16, 184, 114);
+	/* background-color: rgb(16, 184, 114); */
+	background-color:  #b6303d;
 	text-align: center;
 	color: white;
 	font-weight: 700;

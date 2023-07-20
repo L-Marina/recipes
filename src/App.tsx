@@ -5,13 +5,14 @@ import Layout from './components/Layout';
 import Recipe from './components/Recipe';
 
 
-const App = () => {
+function App ()  {
+
 
   	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Layout/>}>
-					<Route path='recipes' element={<Recipes />}/>
+					<Route path='recipes' element={<Recipes/>}/>
 					<Route path='recipes/:id' element={<Recipe/>}/>
 					<Route path='*' element={<h1>Not found Page</h1>}/>
 				</Route>

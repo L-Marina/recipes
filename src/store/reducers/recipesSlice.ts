@@ -27,6 +27,20 @@ export const fetchRecipes = createAsyncThunk<IRecipe[], undefined, {rejectValue:
 		}
 );
 
+export const fetchRecipesId = createAsyncThunk<IRecipe, undefined, {rejectValue: string}>(
+	'recipes/fetchRecipes',
+	async function(_, {rejectWithValue}) {
+			const response = await fetch('https://api.punkapi.com/v2/beers');
+			
+			if(!response.ok) {
+				return rejectWithValue('Server Error');
+			}
+			const data = await response.json();
+
+			return data;
+		}
+);
+
 
 export const recipesSlice = createSlice({
 		name: 'recipes',
