@@ -1,8 +1,9 @@
 import React from 'react';
-import { IRecipe } from '../types';
 import  {useAppDispatch} from '../hooks';
 import { removeRecipes} from '../store/reducers/recipesSlice';
 import { NavLink} from 'react-router-dom';
+import { IRecipe } from '../types';
+
 
 
 const RecipesItem: React.FC<IRecipe> = ({id, name, ...recipes}) => {
@@ -24,10 +25,10 @@ const RecipesItem: React.FC<IRecipe> = ({id, name, ...recipes}) => {
 	return(
 		<>
 			<li className='list'>
-				
+ 				
 				<input type='checkbox' /> 
 				<NavLink to= {path} className='link' > 
-					<span>{name}</span>	
+					<span>{name}</span>
 				</NavLink>
 				<button className='btn' onClick={removeTask}>Delete</button>
 
