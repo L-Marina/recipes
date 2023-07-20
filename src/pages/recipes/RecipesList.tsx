@@ -4,7 +4,6 @@ import RecipesItem from './RecipesItem';
 // import InfiniteScroll from 'react-infinite-scroll-component';
 
 
-
 const RecipesList = () => {
 
 	const recipes = useAppSelector(state => state.recipes.recipesList);
@@ -23,9 +22,9 @@ const RecipesList = () => {
 					{recipes.filter((recipe, index) => index < 15 )
 						.map ((recipe, index) => {
 								return (
-										<RecipesItem
-											key={recipe.id}
-											{...recipe}/>
+									<RecipesItem
+										key={recipe.id}
+										{...recipe}/>
 									)
 								}
 						)
