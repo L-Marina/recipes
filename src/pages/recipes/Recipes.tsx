@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
-import {useAppDispatch} from '../hooks';
+import {useAppDispatch} from '../../hooks';
 import RecipesList from './RecipesList';
-import { fetchRecipes } from '../store/reducers/recipesSlice';
+import { fetchRecipes } from '../../store/reducers/recipesSlice';
 import { Outlet } from 'react-router-dom';
 
 
 
-const Recipes = () => {
+export const Recipes = () => {
 	
 	const dispatch = useAppDispatch();
 
@@ -29,4 +29,4 @@ const Recipes = () => {
 	)
 }
 
-export default Recipes;
+

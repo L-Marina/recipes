@@ -1,8 +1,8 @@
 import React from 'react';
-import  {useAppDispatch} from '../hooks';
-import { removeRecipes} from '../store/reducers/recipesSlice';
+import  {useAppDispatch} from '../../hooks';
+import { removeRecipes} from '../../store/reducers/recipesSlice';
 import { NavLink} from 'react-router-dom';
-import { IRecipe } from '../types';
+import { IRecipe } from '../../types';
 
 
 

@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Recipes from './components/Recipes';
 import Layout from './components/Layout';
-import Recipe from './components/Recipe';
+import Recipe from './pages/recipe';
+import Recipes from './pages/recipes';
 
 
 function App ()  {
@@ -18,6 +18,7 @@ function App ()  {
 				</Route>
 			</Routes>
 		</BrowserRouter>
+		
 	)
 }
 

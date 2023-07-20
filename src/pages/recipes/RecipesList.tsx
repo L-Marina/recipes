@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAppSelector } from '../hooks';
+import { useAppSelector } from '../../hooks';
 import RecipesItem from './RecipesItem';
 // import InfiniteScroll from 'react-infinite-scroll-component';
-// import { fetchRecipes } from '../store/reducers/recipesSlice';
+
 
 
 const RecipesList = () => {

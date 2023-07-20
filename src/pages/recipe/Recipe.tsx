@@ -2,16 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 
-const Recipe = () => {
+export const Recipe = () => {
 
 	const {id} = useParams();
 
 	return(
-		<>
-			<h2>{id}</h2>
-		
-		</>
-	)
+			<div>{id}</div>
+		)
 }
 
-export default Recipe;
