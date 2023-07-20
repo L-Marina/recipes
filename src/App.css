@@ -23,7 +23,6 @@
 	width: 100%;
 }
 
-
 @media(max-width:500px){
 	.header {
 		min-height: 30px;
@@ -49,8 +48,6 @@
 	}
 }
 
-
-
 .item a.active {
 	color: rgba(4, 4, 49, 0.726);
 	font-weight: bold;
@@ -61,6 +58,7 @@
 	color: rgb(255, 230, 0);
 	box-shadow: 5px 0 5px rgb(15, 22, 58);
 }
+
 .item a {
 	display: block;
 	margin: 10px;
@@ -70,6 +68,7 @@
 	border-radius: 20px;
 	text-decoration: none;
 }
+
 .recipes {
 	margin: 10px;
 }
@@ -95,6 +94,7 @@ li {
 .link:hover {
 	color: rgb(255, 230, 0);
 }
+
 .flex {
 	display: flex;
 	flex-direction: column;

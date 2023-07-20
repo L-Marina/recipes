@@ -5,7 +5,6 @@ import { fetchRecipes } from '../../store/reducers/recipesSlice';
 import { Outlet } from 'react-router-dom';
 
 
-
 export const Recipes = () => {
 	
 	const dispatch = useAppDispatch();

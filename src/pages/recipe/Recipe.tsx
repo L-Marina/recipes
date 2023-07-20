@@ -6,8 +6,7 @@ export const Recipe = () => {
 
 	const {id} = useParams();
 
-	return(
-			<div>{id}</div>
-		)
+	return <div>{id}</div>
+	
 }
 
