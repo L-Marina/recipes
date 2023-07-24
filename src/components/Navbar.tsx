@@ -1,13 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Button from '@mui/material/Button/Button';
 
 const Navbar = () => {
 
 	return (
 		<nav className='navbar'>
-			<div className='item'>
-				<NavLink to='/recipes' className={navData => navData.isActive ? 'active' : 'item'}>Recipes</NavLink>
-			</div>
+			<Button color={'inherit'} href='/recipes' variant='outlined'>
+				Recipes
+			</Button>
 		</nav>
 	)
 }
