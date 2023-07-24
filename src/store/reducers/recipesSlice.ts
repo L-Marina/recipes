@@ -13,6 +13,7 @@ const initialState: RecipeState = {
 	error: null,
 }
 
+
 export const fetchRecipes = createAsyncThunk<IRecipe[], undefined, {rejectValue: string}>(
 	'recipes/fetchRecipes',
 	async function(_, {rejectWithValue}) {
