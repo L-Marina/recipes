@@ -11,7 +11,7 @@ export const Footer: FC = (): ReactElement => {
         paddingBottom: 0,
 		  position: 'fixed',
 		  bottom: 0,
-      }}
+		}}
     >
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">
