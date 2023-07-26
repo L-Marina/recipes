@@ -66,6 +66,7 @@ export interface IRecipe {
 	contributed_by: string,
 }
 
+
 export interface RecipeState {
 	recipes: IRecipe[];
 	loading: boolean;
@@ -73,4 +74,3 @@ export interface RecipeState {
 	page: number;
 	limit: number;
 }
-

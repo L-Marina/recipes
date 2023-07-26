@@ -15,7 +15,7 @@ const theme = createTheme({
 		secondary: {
 			main: '#4169e1',
 		}
-	}
+	},
 })
 
 const root = ReactDOM.createRoot(

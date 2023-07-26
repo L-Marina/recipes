@@ -21,7 +21,7 @@ const Layout = () => {
 				}}>
 
 				<Header />
-				<Container />
+				<Container sx={{height: '100%'}}/>
 				<Outlet /> 
 				<Footer />
 			</Box>
