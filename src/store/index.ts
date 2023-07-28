@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import recipesReducer from './reducers/recipesSlice';
+import basketReducer from './reducers/basketSlice';
 
 const store = configureStore({
 	reducer: {
 		recipes: recipesReducer,
+		basket: basketReducer,
 	},
 })
 

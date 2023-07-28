@@ -1,33 +1,31 @@
 import React from 'react';
-import  { useAppDispatch } from '../../hooks';
+import { useAppDispatch } from '../../hooks';
 import { getRecipe } from '../../store/reducers/recipesSlice';
+import { addToOrder, removeFromOrder } from '../../store/reducers/basketSlice';
 import { IRecipe } from '../../types';
-import Button from '@mui/material/Button/Button';
-import Grid from '@mui/material/Grid/Grid';
-import Card from '@mui/material/Card/Card';
-import CardActions from '@mui/material/CardActions/CardActions';
-import CardMedia from '@mui/material/CardMedia/CardMedia';
-import CardContent from '@mui/material/CardContent/CardContent';
-import Typography from '@mui/material/Typography/Typography';
 import { CheckboxItem } from './CheckboxItem';
-import Stack from '@mui/material/Stack/Stack';
-
+import { Button,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, IconButton, Stack } from '@mui/material';
+import { AddCircleOutline,  RemoveCircleOutline } from '@mui/icons-material';
 
 export const RecipesItem: React.FC<IRecipe> = ({id, name, description, image_url, ...recipes}) => {
 
 	const dispatch = useAppDispatch();
 
 	const getTask = () => dispatch(getRecipe(id));
-	
+		
 	const path = '/recipes/' + id;
 
+	const removeOrder = () => dispatch(removeFromOrder(id));
+
+	const addOrder = () => dispatch(addToOrder(id))
+
 	return(
-			<Grid item sx={{m:'10px'}}>
+			<Grid item sx={{m:'10px'}} >
 				<Card sx={{ height: '100%', maxWidth: 340, p:'10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}} variant='outlined'>
 					<CardMedia
 						sx={{ height: 150, objectFit:'contain'}}
 						image={image_url}
-						component="img"
+						component='img'
 					/>
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='div'>
@@ -38,9 +36,13 @@ export const RecipesItem: React.FC<IRecipe> = ({id, name, description, image_url
 						</Typography>
 					</CardContent>
 					<CardActions sx={{display:'flex', justifyContent:'space-around'}}>
-					<Stack direction="row" spacing={2}>
+					<Stack direction='row' spacing={2}>
 						<CheckboxItem id={id} />
-						<Button size='small' variant='contained' href={path} onClick={getTask}>Show more</Button>
+						<IconButton color={'primary'} >
+							<AddCircleOutline onClick={addOrder}/>
+							<RemoveCircleOutline onClick={removeOrder}/>
+						</IconButton>
+						<Button size='small' variant='contained' href={path} onClick={getTask}>Show more</Button>	
 					</Stack>
 					</CardActions>
 				</Card>

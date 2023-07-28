@@ -13,6 +13,10 @@ const initialState: RecipeState = {
 	error: null,
 }
 
+type RecipeIdAction = {
+	id: number | string;
+}
+
 
 export const fetchRecipes = createAsyncThunk<IRecipe[], undefined, {rejectValue: string}>(
 	'recipes/fetchRecipes',
@@ -32,11 +36,14 @@ export const recipesSlice = createSlice({
 		name: 'recipes',
 		initialState,
 		reducers: {
-			removeRecipes (state, action: PayloadAction<number>) {
+			removeRecipes (state, action: PayloadAction<RecipeIdAction>) {
 				state.recipesList = state.recipesList.filter(recipe => recipe.id !== action.payload);
 			},
-			getRecipe (state, action: PayloadAction<number>) {
+			getRecipe (state, action: PayloadAction<RecipeIdAction>) {
 				state.recipesList.find(recipe => action.payload === recipe.id );
+			},
+			searchRecipe (state, action: PayloadAction<string>) {
+				state.recipesList.filter(recipe => action.payload === recipe.name);
 			},
 		},
 	
@@ -59,6 +66,6 @@ export const recipesSlice = createSlice({
 	}
 )
 
-export const {removeRecipes, getRecipe} = recipesSlice.actions;
+export const {removeRecipes, getRecipe, searchRecipe} = recipesSlice.actions;
 
 export default recipesSlice.reducer;

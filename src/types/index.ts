@@ -1,4 +1,3 @@
-
 type VolumeType = {
 	value: number,
 	unit: string,
@@ -19,7 +18,7 @@ type MethodType = {
 	fermentation: FermentationType,
  }
 
- type IngredientsType = {
+type IngredientsType = {
 	malt: Array<MaltType>
 	hops: Array<HopsType>
 	yeast: string,
@@ -41,9 +40,12 @@ type HopsType = {
 	add: string,
 	attribute: string,
 }
+export type RecipeId = {
+	id: number | string;
+}
 
 export interface IRecipe {
-	id: number,
+	id: RecipeId,
 	name: string,
 	tagline: string,
 	first_brewed: number,
@@ -65,7 +67,6 @@ export interface IRecipe {
 	brewers_tips: string,
 	contributed_by: string,
 }
-
 
 export interface RecipeState {
 	recipes: IRecipe[];

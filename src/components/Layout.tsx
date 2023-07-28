@@ -1,10 +1,9 @@
 import React from 'react';
 import { Outlet} from 'react-router-dom';
+import { Header } from './Header';
+import { Footer }  from './Footer';
+import { Box, Container } from '@mui/material';
 
-import Header from './Header';
-import Footer  from './Footer';
-import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
 
 const Layout = () => {
 	
@@ -20,7 +19,9 @@ const Layout = () => {
 				backgroundColor:'grey',
 				}}>
 
-				<Header />
+				<Header 
+					handleCart={() => setCartOpen(true)}
+					listLen={list.length}/>
 				<Container sx={{height: '100%'}}/>
 				<Outlet /> 
 				<Footer />
