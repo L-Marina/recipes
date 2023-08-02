@@ -2,19 +2,17 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { IRecipe } from '../../types';
 
 interface RecipeState  {
-	recipesList: IRecipe[];
-	loading: boolean;
-	error: null | string;
+	recipesList: IRecipe[],
+	activeRecipe: IRecipe | null | any,
+	loading: boolean,
+	error: null | string,
 }
 
 const initialState: RecipeState = {
 	recipesList: [],
+	activeRecipe: null,
 	loading: false,
 	error: null,
-}
-
-type RecipeIdAction = {
-	id: number | string;
 }
 
 
@@ -36,14 +34,20 @@ export const recipesSlice = createSlice({
 		name: 'recipes',
 		initialState,
 		reducers: {
-			removeRecipes (state, action: PayloadAction<RecipeIdAction>) {
+
+			removeRecipes (state, action: PayloadAction<number>) {
 				state.recipesList = state.recipesList.filter(recipe => recipe.id !== action.payload);
 			},
-			getRecipe (state, action: PayloadAction<RecipeIdAction>) {
-				state.recipesList.find(recipe => action.payload === recipe.id );
-			},
-			searchRecipe (state, action: PayloadAction<string>) {
-				state.recipesList.filter(recipe => action.payload === recipe.name);
+
+			setActiveRecipe (state, action: PayloadAction<number>) {
+            if (action.payload === undefined) state.activeRecipe = null;
+               const countRecipes = state.recipesList.length
+				for(let i = 0; i < countRecipes; i++){
+               if (state.recipesList[i].id === action.payload){
+                  state.activeRecipe = state.recipesList[i];
+               	break;
+               }
+            }
 			},
 		},
 	
@@ -66,6 +70,6 @@ export const recipesSlice = createSlice({
 	}
 )
 
-export const {removeRecipes, getRecipe, searchRecipe} = recipesSlice.actions;
+export const {removeRecipes, setActiveRecipe} = recipesSlice.actions;
 
 export default recipesSlice.reducer;

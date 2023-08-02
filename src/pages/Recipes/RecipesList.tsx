@@ -17,13 +17,12 @@ export const RecipesList = () => {
 						return (
 							<RecipesItem
 								key={recipe.id}
-									{...recipe}/>
-							)
-						}
-					)
+								{...recipe}
+							/>
+						)
+					})
 				}		
 			</Grid>
-
 			{(recipes.length === 0) ? <AdditionalLoading/> : null}
 		</>
 	)

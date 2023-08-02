@@ -1,23 +1,26 @@
 import React from 'react';
 import { useAppDispatch } from '../../hooks';
-import { getRecipe } from '../../store/reducers/recipesSlice';
 import { addToOrder, removeFromOrder } from '../../store/reducers/basketSlice';
-import { IRecipe } from '../../types';
 import { CheckboxItem } from './CheckboxItem';
-import { Button,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, IconButton, Stack } from '@mui/material';
+import { Link,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, Stack } from '@mui/material';
 import { AddCircleOutline,  RemoveCircleOutline } from '@mui/icons-material';
 
-export const RecipesItem: React.FC<IRecipe> = ({id, name, description, image_url, ...recipes}) => {
+export type RecipeItemProps={
+	id: number;
+	name: string;
+	description: string;
+ 	image_url: string;
+}
+
+export const RecipesItem = ({id, name, description, image_url}: RecipeItemProps) => {
 
 	const dispatch = useAppDispatch();
-
-	const getTask = () => dispatch(getRecipe(id));
 		
 	const path = '/recipes/' + id;
 
 	const removeOrder = () => dispatch(removeFromOrder(id));
-
-	const addOrder = () => dispatch(addToOrder(id))
+	
+	const addOrder = () => dispatch(addToOrder({id, name}))
 
 	return(
 			<Grid item sx={{m:'10px'}} >
@@ -36,13 +39,15 @@ export const RecipesItem: React.FC<IRecipe> = ({id, name, description, image_url
 						</Typography>
 					</CardContent>
 					<CardActions sx={{display:'flex', justifyContent:'space-around'}}>
-					<Stack direction='row' spacing={2}>
 						<CheckboxItem id={id} />
-						<IconButton color={'primary'} >
-							<AddCircleOutline onClick={addOrder}/>
-							<RemoveCircleOutline onClick={removeOrder}/>
-						</IconButton>
-						<Button size='small' variant='contained' href={path} onClick={getTask}>Show more</Button>	
+						<Stack direction='row' spacing={2}>
+						<AddCircleOutline sx={{cursor:'pointer'}} color={'primary'} onClick={addOrder}/>
+						<RemoveCircleOutline sx={{cursor:'pointer'}}  color={'primary'} onClick={removeOrder}/>
+						<Link 
+							underline='hover'
+  							variant='h6' 
+							href={path}>Show more
+						</Link>	
 					</Stack>
 					</CardActions>
 				</Card>

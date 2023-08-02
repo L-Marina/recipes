@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import { useAppSelector, useAppDispatch} from '../../hooks';
 import { RecipesItem } from './RecipesItem';
-import Grid from '@mui/material/Grid/Grid';
 import { fetchRecipes } from '../../store/reducers/recipesSlice';
+import { Grid } from '@mui/material';
 
 
 export const AdditionalLoading = () => {
@@ -17,12 +17,13 @@ export const AdditionalLoading = () => {
 	}}, [dispatch,recipes.length]);
 
 	return (
-		<Grid container rowSpacing={2} >
+		<Grid container rowSpacing={2}>
 			{recipes.map ((recipe) => {
 					return (
 						<RecipesItem
 							key={recipe.id}
-								{...recipe}/>
+							// recipe={recipe}/>
+							{...recipe}/>
 						)
 					}
 				)

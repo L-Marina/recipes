@@ -1,31 +1,59 @@
-import { List, ShoppingBasket } from '@mui/icons-material';
-import { Drawer, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import React from 'react';
 import { BasketItem } from './BasketItem';
 import { useAppSelector } from '../hooks';
+import { List, ShoppingBasket } from '@mui/icons-material';
+import { Drawer, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@mui/material';
 
-export const Basket = () => {
+type BasketProps={
+	cartOpen: boolean;
+	closeCart:() => void;
+}
 
-	const list = useAppSelector(state => state.basket.list);
+
+export const Basket = ({cartOpen, closeCart}: BasketProps) => {
+
+	const order = useAppSelector(state => state.basket.cart);
+
+	const getTotalQuantity = () => {
+		let total = 0
+		order.forEach(item => {
+			total += item.quantity
+		})
+		return total
+	};
 
 	return(
 		<Drawer
 			anchor='right'
 			open={cartOpen}
-			onClose={cartClose}
+			onClose={closeCart}
 		>
-			<List sx={{width:'300px'}}>
-				<ListItem>
+			<List sx={{width:'300px'}} >
+				<ListItem >
 					<ListItemIcon>
 						<ShoppingBasket/>
 					</ListItemIcon>
 					<ListItemText primary='Basket'/>
 				</ListItem>
 				<Divider/>
-				{!list.length ? (<ListItem>Shopping cart is empty</ListItem>) 
-				:(list.map((item) => (
-					<BasketItem key={item.name}{...item}/>))
+
+				{! order.length 
+					? (<ListItem>Shopping cart is empty</ListItem>)
+				 	: ( 
+					<>
+						{order.map((item) => (
+						<BasketItem key={item.id} id={item.id} name={item.name} quantity={item.quantity}
+						// {...item}
+						/>))
+						}
+						<Divider/>
+						<ListItem >
+						<Typography sx={{fontWeight: 700}} color='yellow'>{getTotalQuantity()|| 0}</Typography>
+						</ListItem>
+					</>
 				)}
 			</List>
 		</Drawer>
+		
 	)
 }

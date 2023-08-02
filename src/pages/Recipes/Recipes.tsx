@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { RecipesList } from './RecipesList';
 import { fetchRecipes } from '../../store/reducers/recipesSlice';
 import { Progress } from '../../components/Progress';
-import { Basket } from '../../components/Basket';
 import { Container,  Typography } from '@mui/material';
 
 
 export const Recipes = () => {
 
-	const[isCartOpen, setCartOpen] = useState(false);
-	
 	const dispatch = useAppDispatch();
 
 	useEffect( () => {
@@ -27,7 +24,6 @@ export const Recipes = () => {
 				{error && <Typography variant='h3' color='primary' textAlign='center' sx={{mt:'15px'}}>An error occurred: {error}</Typography>} 
 				<RecipesList />
 			</Container>
-			<Basket cartOpen={isCartOpen} cartClose={() => setCartOpen(false)}/>
 		</>
 	)
 }

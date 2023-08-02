@@ -1,43 +1,56 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RecipeId } from '../../types';
 
-type RecipeItem ={
-	id: RecipeId;
+export type RecipeItem ={
+	id: number;
 	name: string;
-	quantity: number;
-}
-
-type RecipeItemAction ={
-	id: RecipeId;
-	name: string;
+	quantity:number;
 }
 
 type BasketState = {
-	list: RecipeItem [];
+	cart: RecipeItem [];
 }
 	
 const initialState: BasketState = {
-	list: [],
+	cart: [],
 }
+
 
 export const basketSlice = createSlice({
 	name: 'basket',
 	initialState,
 	reducers: {
-		addToOrder (state, action: PayloadAction<RecipeItemAction>) {
-			state.list.push({
-				id: action.payload.id,
-				name: action.payload.name,
-				quantity:1,
-			});
+
+		addToOrder (state, action: PayloadAction<RecipeItem>) {
+			const itemCart = state.cart.find((item) => item.id === action.payload.id);
+			if (itemCart) {
+				itemCart.quantity++;
+			} else {
+				state.cart.push({...action.payload, quantity: 1})
+			}
 		},
-			
-		removeFromOrder (state, action: PayloadAction<RecipeId>) {
-			state.list = state.list.filter(recipe => recipe.id !== action.payload);
+
+		incrementQuantity(state, action: PayloadAction<number>) {
+			const item = state.cart.find((item) => item.id === action.payload);
+			if(item) {
+				item.quantity--;
+			}
 		},
-	},
+		
+		decrementQuantity(state, action: PayloadAction<number>){
+			const item = state.cart.find((item) => item.id === action.payload);
+			if(item && item.quantity === 1){
+				item.quantity = 1
+			} else {
+				item && item.quantity--;
+			}
+		},
+
+		removeFromOrder (state, action: PayloadAction<number>) {
+			state.cart = state.cart.filter(recipe => recipe.id !== action.payload);
+		},
+	}
 })
 
-export const {addToOrder, removeFromOrder} = basketSlice.actions;
+export const {addToOrder, incrementQuantity, decrementQuantity, removeFromOrder} = basketSlice.actions;
 
 export default basketSlice.reducer;

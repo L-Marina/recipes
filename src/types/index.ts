@@ -40,12 +40,9 @@ type HopsType = {
 	add: string,
 	attribute: string,
 }
-export type RecipeId = {
-	id: number | string;
-}
 
 export interface IRecipe {
-	id: RecipeId,
+	id: number,
 	name: string,
 	tagline: string,
 	first_brewed: number,

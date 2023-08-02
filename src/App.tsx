@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout';
-import Recipe from './pages/Recip';
-import Recipes from './pages/Resips';
+import Recipe from './pages/Recipe';
+import Recipes from './pages/Recipes';
+
 
 
 function App ()  {

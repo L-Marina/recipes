@@ -1,10 +1,15 @@
-import { ListItem, Typography, IconButton } from '@mui/material';
-import { Close } from '@mui/icons-material';
+import { ListItem, Typography, IconButton, Stack } from '@mui/material';
+import { Close, AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
 import { useAppDispatch } from '../hooks';
-import { removeFromOrder } from '../store/reducers/basketSlice';
+import { removeFromOrder, incrementQuantity, decrementQuantity } from '../store/reducers/basketSlice';
 
+type RecipeItemProps ={
+	id: number;
+	name: string;
+	quantity: number;
+}
 
-export const BasketItem = ({id, name, quantity}) => {
+export const BasketItem = ({id, name, quantity=0 }:RecipeItemProps) => {
 
 	const dispatch = useAppDispatch();
 
@@ -12,14 +17,18 @@ export const BasketItem = ({id, name, quantity}) => {
 
 	return(
 		<ListItem>
-			<Typography variant='body1'>
+			<Typography variant='body1' color='blue'>
 				{name}
-				{quantity}
 			</Typography>
 			<IconButton
 				onClick={removeOrder}>
 				<Close/>
 			</IconButton>
+			<Stack direction='row' spacing={2}>
+				<AddCircleOutline sx={{cursor:'pointer'}} color={'primary'} onClick={()=>dispatch(incrementQuantity(id))}/>
+					<p>{quantity}</p>
+				<RemoveCircleOutline sx={{cursor:'pointer'}}  color={'primary'} onClick={()=>dispatch(decrementQuantity(id))}/>
+			</Stack>
 		</ListItem>
 	)
 }

@@ -5,7 +5,7 @@ import { Checkbox, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 interface CheckboxItemProps {
-	id: number | string,
+	id: number,
 }
 
 export const CheckboxItem = (props:CheckboxItemProps ) => {
