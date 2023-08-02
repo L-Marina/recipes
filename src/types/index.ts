@@ -2,45 +2,37 @@ type VolumeType = {
 	value: number,
 	unit: string,
 }
-
 type MashTempType = {
 	temp: VolumeType,
 	duration: number,
 }
-
 type FermentationType ={
 	temp: VolumeType,
 	twist: null,
  }
-
 type MethodType = {
 	mash_temp: Array<MashTempType>,
 	fermentation: FermentationType,
  }
-
 type IngredientsType = {
 	malt: Array<MaltType>
 	hops: Array<HopsType>
 	yeast: string,
 }
-
 type MaltType = {
 	name: string,
 	amount: AmountType,
 }
-
 type AmountType = {
 	value: number,
 	unit: string,
 }
-
 type HopsType = {
 	name: string,
 	amount: AmountType,
 	add: string,
 	attribute: string,
 }
-
 export interface IRecipe {
 	id: number,
 	name: string,
@@ -64,7 +56,6 @@ export interface IRecipe {
 	brewers_tips: string,
 	contributed_by: string,
 }
-
 export interface RecipeState {
 	recipes: IRecipe[];
 	loading: boolean;

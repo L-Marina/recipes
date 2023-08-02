@@ -1,7 +1,7 @@
-import { ListItem, Typography, IconButton, Stack } from '@mui/material';
-import { Close, AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
 import { useAppDispatch } from '../hooks';
 import { removeFromOrder, incrementQuantity, decrementQuantity } from '../store/reducers/basketSlice';
+import { ListItem, Typography, IconButton, Stack } from '@mui/material';
+import { Close, AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
 
 type RecipeItemProps ={
 	id: number;
@@ -10,14 +10,13 @@ type RecipeItemProps ={
 }
 
 export const BasketItem = ({id, name, quantity=0 }:RecipeItemProps) => {
-
 	const dispatch = useAppDispatch();
 
 	const removeOrder = () => dispatch(removeFromOrder(id));
 
 	return(
 		<ListItem>
-			<Typography variant='body1' color='blue'>
+			<Typography variant='body1' color='secondary'>
 				{name}
 			</Typography>
 			<IconButton

@@ -6,7 +6,6 @@ import { AdditionalLoading } from './AdditionalLoading';
 
 
 export const RecipesList = () => {
-
 	const recipes = useAppSelector(state => state.recipes.recipesList);
 
 	return (

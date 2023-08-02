@@ -6,7 +6,6 @@ import { setActiveRecipe } from '../../store/reducers/recipesSlice';
 
 
 export const Recipe = ()=> {
-
 	const {id} = useParams();
 
 	const dispatch = useAppDispatch();

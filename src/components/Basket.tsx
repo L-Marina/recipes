@@ -1,8 +1,8 @@
 import React from 'react';
 import { BasketItem } from './BasketItem';
 import { useAppSelector } from '../hooks';
-import { List, ShoppingBasket } from '@mui/icons-material';
-import { Drawer, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@mui/material';
+import { ShoppingBasket } from '@mui/icons-material';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@mui/material';
 
 type BasketProps={
 	cartOpen: boolean;
@@ -11,7 +11,6 @@ type BasketProps={
 
 
 export const Basket = ({cartOpen, closeCart}: BasketProps) => {
-
 	const order = useAppSelector(state => state.basket.cart);
 
 	const getTotalQuantity = () => {
@@ -31,9 +30,9 @@ export const Basket = ({cartOpen, closeCart}: BasketProps) => {
 			<List sx={{width:'300px'}} >
 				<ListItem >
 					<ListItemIcon>
-						<ShoppingBasket/>
+						<ShoppingBasket color='primary'/>
 					</ListItemIcon>
-					<ListItemText primary='Basket'/>
+					<ListItemText primary='Basket' />
 				</ListItem>
 				<Divider/>
 
@@ -48,7 +47,7 @@ export const Basket = ({cartOpen, closeCart}: BasketProps) => {
 						}
 						<Divider/>
 						<ListItem >
-						<Typography sx={{fontWeight: 700}} color='yellow'>{getTotalQuantity()|| 0}</Typography>
+							<Typography sx={{fontWeight: 700}} color='primary'>Total count: {getTotalQuantity()|| 0}</Typography>
 						</ListItem>
 					</>
 				)}

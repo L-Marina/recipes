@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchFormDialog } from './SearchFormDialog';
 import { useAppSelector } from '../hooks';
 import { Grid, Toolbar, AppBar, Typography, IconButton, Badge, Button, Stack } from '@mui/material';
 import { ShoppingBasket } from '@mui/icons-material';
-
-type HandleCartProps={
-	handleCart: () => void;
-}
+import { Basket } from './Basket';
 
 
-export const Header = ({handleCart}:HandleCartProps) => {
+
+export const Header = () => {
+	const[isCartOpen, setCartOpen] = useState(false);
+
+	const handleCart = () => setCartOpen(true);
 
 	const navigate = useNavigate();
 	
@@ -34,9 +35,9 @@ export const Header = ({handleCart}:HandleCartProps) => {
 									<ShoppingBasket/>
 								</Badge>
 							</IconButton>
+							<Basket cartOpen={isCartOpen} closeCart={() => setCartOpen(false)}/>
 						</Stack>
 					</Grid>
-					
 					<Grid container item xs={12}>
 						<SearchFormDialog/>
 					</Grid>
@@ -45,5 +46,7 @@ export const Header = ({handleCart}:HandleCartProps) => {
 		</AppBar>
 	)
 }
+
+
 
 

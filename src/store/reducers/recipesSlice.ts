@@ -34,11 +34,9 @@ export const recipesSlice = createSlice({
 		name: 'recipes',
 		initialState,
 		reducers: {
-
 			removeRecipes (state, action: PayloadAction<number>) {
 				state.recipesList = state.recipesList.filter(recipe => recipe.id !== action.payload);
 			},
-
 			setActiveRecipe (state, action: PayloadAction<number>) {
             if (action.payload === undefined) state.activeRecipe = null;
                const countRecipes = state.recipesList.length
@@ -61,7 +59,7 @@ export const recipesSlice = createSlice({
 				state.error = '';
 				state.recipesList = action.payload;
 			},
-
+			
 			[fetchRecipes.rejected.type]: (state, action: PayloadAction<string>) => {
 				state.loading = false;
 				state.error = action.payload;

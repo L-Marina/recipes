@@ -5,9 +5,7 @@ import Recipe from './pages/Recipe';
 import Recipes from './pages/Recipes';
 
 
-
 function App ()  {
-
   	return (
 		<BrowserRouter>
 			<Routes>

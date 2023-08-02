@@ -9,11 +9,10 @@ interface CheckboxItemProps {
 }
 
 export const CheckboxItem = (props:CheckboxItemProps ) => {
-
-  	const [checked, setChecked] = React.useState(false);
+	const [checked, setChecked] = React.useState(false);
 
   	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked)
+   	setChecked(event.target.checked)
   	};
 
 	const {id} = props;
@@ -29,10 +28,10 @@ export const CheckboxItem = (props:CheckboxItemProps ) => {
 				onChange={handleChange}
 				inputProps={{ 'aria-label': 'controlled' }}
 			/>
-
 			{(checked === true) 
 			? <Button size='small' variant='contained' startIcon={<DeleteIcon />} onClick={removeTask}>Delete</Button> 
-			:  null }
+			:  null 
+			}
 		</>
   	);
 }

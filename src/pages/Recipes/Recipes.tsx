@@ -7,7 +7,6 @@ import { Container,  Typography } from '@mui/material';
 
 
 export const Recipes = () => {
-
 	const dispatch = useAppDispatch();
 
 	useEffect( () => {
@@ -22,7 +21,7 @@ export const Recipes = () => {
 				<Typography variant='h3' color='white' textAlign='center' sx={{m:'20px'}}>Recipes of beers</Typography>
 				{loading && <Progress/>}
 				{error && <Typography variant='h3' color='primary' textAlign='center' sx={{mt:'15px'}}>An error occurred: {error}</Typography>} 
-				<RecipesList />
+				<RecipesList/>
 			</Container>
 		</>
 	)

@@ -1,19 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Outlet} from 'react-router-dom';
 import { Header } from './Header';
 import { Footer }  from './Footer';
 import { Box, Container } from '@mui/material';
-import { Basket } from './Basket';
 
 
 const Layout = () => {
-	
-	const[isCartOpen, setCartOpen] = useState(false);
-
-	const handleCart = () => setCartOpen(true);
-
 	return (
-			
 			<Box 
 				sx={{display:'flex', 
 				flexDirection:'column',
@@ -25,11 +18,10 @@ const Layout = () => {
 				overflow:'hidden',
 				}}
 			>
-				<Header  handleCart={ handleCart}/>
+				<Header />
 				<Container sx={{height: '100%', overflow:'hidden'}} />
 				<Outlet /> 
 				<Footer />
-				<Basket cartOpen={isCartOpen} closeCart={() => setCartOpen(false)}/>
 			</Box>
 	)
 }

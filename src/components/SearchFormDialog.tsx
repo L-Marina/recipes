@@ -6,7 +6,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 export const SearchFormDialog = () => {
-
 	const[open, setOpen] = React.useState(false);
 
 	const[search, setSearch] = useState('');

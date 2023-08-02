@@ -6,7 +6,6 @@ import { Grid } from '@mui/material';
 
 
 export const AdditionalLoading = () => {
-
 	const recipes = useAppSelector(state => state.recipes.recipesList);
 
 	const dispatch = useAppDispatch();
@@ -19,15 +18,14 @@ export const AdditionalLoading = () => {
 	return (
 		<Grid container rowSpacing={2}>
 			{recipes.map ((recipe) => {
-					return (
-						<RecipesItem
-							key={recipe.id}
-							// recipe={recipe}/>
-							{...recipe}/>
-						)
-					}
-				)
-			}		
+				return (
+					<RecipesItem
+						key={recipe.id}
+						// recipe={recipe}/>
+						{...recipe}/>
+					)
+				}
+			)}		
 		</Grid>
 	)
 }
