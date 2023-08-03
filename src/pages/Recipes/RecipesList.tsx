@@ -1,15 +1,12 @@
 import React from 'react';
 import { useAppSelector } from '../../hooks';
 import { RecipesItem } from './RecipesItem';
-import Grid from '@mui/material/Grid/Grid';
+import { Grid } from '@mui/material';
 import { AdditionalLoading } from './AdditionalLoading';
 
 
 export const RecipesList = () => {
-
 	const recipes = useAppSelector(state => state.recipes.recipesList);
-
-	//const loading = useAppSelector(state => state.recipes.loading);
 
 	return (
 		<>
@@ -19,13 +16,12 @@ export const RecipesList = () => {
 						return (
 							<RecipesItem
 								key={recipe.id}
-									{...recipe}/>
-							)
-						}
-					)
+									recipe={recipe}
+							/>
+						)
+					})
 				}		
 			</Grid>
-
 			{(recipes.length === 0) ? <AdditionalLoading/> : null}
 		</>
 	)

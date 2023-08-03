@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-
 import store  from './store';
 import App from './App';
 import './index.css';
@@ -13,7 +12,7 @@ const theme = createTheme({
 			main:'#b6303d',
 		},
 		secondary: {
-			main: '#4169e1',
+			main: '#808080',
 		}
 	},
 })

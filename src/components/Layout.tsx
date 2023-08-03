@@ -1,15 +1,12 @@
 import React from 'react';
 import { Outlet} from 'react-router-dom';
+import { Header } from './Header';
+import { Footer }  from './Footer';
+import { Box, Container } from '@mui/material';
 
-import Header from './Header';
-import Footer  from './Footer';
-import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
 
 const Layout = () => {
-	
 	return (
-		<>
 			<Box 
 				sx={{display:'flex', 
 				flexDirection:'column',
@@ -18,14 +15,14 @@ const Layout = () => {
 				maxWidth: '1400px',
 				margin: '0px auto',
 				backgroundColor:'grey',
-				}}>
-
+				overflow:'hidden',
+				}}
+			>
 				<Header />
-				<Container sx={{height: '100%'}}/>
+				<Container sx={{height: '100%', overflow:'hidden'}} />
 				<Outlet /> 
 				<Footer />
 			</Box>
-		</>
 	)
 }
 

@@ -1,12 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout';
-import Recipe from './pages/recipe';
-import Recipes from './pages/recipes';
+import Recipe from './pages/Recipe';
+import Recipes from './pages/Recipes';
 
 
 function App ()  {
-
   	return (
 		<BrowserRouter>
 			<Routes>
