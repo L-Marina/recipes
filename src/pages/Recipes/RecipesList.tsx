@@ -16,7 +16,7 @@ export const RecipesList = () => {
 						return (
 							<RecipesItem
 								key={recipe.id}
-								{...recipe}
+									recipe={recipe}
 							/>
 						)
 					})

@@ -7,7 +7,6 @@ import { ShoppingBasket } from '@mui/icons-material';
 import { Basket } from './Basket';
 
 
-
 export const Header = () => {
 	const[isCartOpen, setCartOpen] = useState(false);
 

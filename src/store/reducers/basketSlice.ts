@@ -7,7 +7,7 @@ export type RecipeItem ={
 }
 
 type BasketState = {
-	cart: RecipeItem [];
+	cart:  RecipeItem [];
 }
 	
 const initialState: BasketState = {
@@ -30,7 +30,7 @@ export const basketSlice = createSlice({
 		incrementQuantity(state, action: PayloadAction<number>) {
 			const item = state.cart.find((item) => item.id === action.payload);
 			if(item) {
-				item.quantity--;
+				item.quantity++;
 			}
 		},
 		decrementQuantity(state, action: PayloadAction<number>){

@@ -21,8 +21,7 @@ export const AdditionalLoading = () => {
 				return (
 					<RecipesItem
 						key={recipe.id}
-						// recipe={recipe}/>
-						{...recipe}/>
+						recipe={recipe}/>
 					)
 				}
 			)}		

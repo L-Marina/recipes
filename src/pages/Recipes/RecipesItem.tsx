@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAppDispatch } from '../../hooks';
-import { addToOrder, removeFromOrder } from '../../store/reducers/basketSlice';
+import { addToOrder } from '../../store/reducers/basketSlice';
 import { CheckboxItem } from './CheckboxItem';
-import { Link,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, Stack } from '@mui/material';
-import { AddCircleOutline,  RemoveCircleOutline } from '@mui/icons-material';
+import { Link,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } from '@mui/material';
+import { AddShoppingCart } from '@mui/icons-material';
 
 export type RecipeItemProps={
 	id: number;
@@ -12,15 +12,14 @@ export type RecipeItemProps={
  	image_url: string;
 }
 
-export const RecipesItem = ({id, name, description, image_url}: RecipeItemProps) => {
-
+export const RecipesItem: React.FC<any> = (props) => {
 	const dispatch = useAppDispatch();
-		
+	const {id, name, description, image_url } = props.recipe;	
 	const path = '/recipes/' + id;
 
-	const removeOrder = () => dispatch(removeFromOrder(id));
-	
-	const addOrder = () => dispatch(addToOrder({id, name}))
+	const quantity = 0;
+
+	const addOrder = () => dispatch(addToOrder({id, name, quantity}))
 
 	return(
 			<Grid item sx={{m:'10px'}} >
@@ -31,24 +30,23 @@ export const RecipesItem = ({id, name, description, image_url}: RecipeItemProps)
 						component='img'
 					/>
 					<CardContent>
-						<Typography gutterBottom variant='h5' component='div'>
-						<span>{name}</span>
+						<Typography gutterBottom variant='h5' component='div' align='center'>
+							<div>{name}</div>
 						</Typography>
 						<Typography variant='body2' color='text.secondary'>
-						<span>{description}</span>
+							<div>{description }</div>
+						</Typography>
+						<Typography  component='div' align='right'>
+							<Link 
+								underline='hover'
+								variant='h6' 
+								href={path}>Show more
+							</Link>	
 						</Typography>
 					</CardContent>
 					<CardActions sx={{display:'flex', justifyContent:'space-around'}}>
 						<CheckboxItem id={id} />
-						<Stack direction='row' spacing={2}>
-						<AddCircleOutline sx={{cursor:'pointer'}} color={'primary'} onClick={addOrder}/>
-						<RemoveCircleOutline sx={{cursor:'pointer'}}  color={'primary'} onClick={removeOrder}/>
-						<Link 
-							underline='hover'
-  							variant='h6' 
-							href={path}>Show more
-						</Link>	
-					</Stack>
+						<Button size='small' variant='contained' endIcon={<AddShoppingCart/>} onClick={addOrder}>Buy</Button> 
 					</CardActions>
 				</Card>
 			</Grid>

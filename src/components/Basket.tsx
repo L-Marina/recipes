@@ -53,6 +53,5 @@ export const Basket = ({cartOpen, closeCart}: BasketProps) => {
 				)}
 			</List>
 		</Drawer>
-		
 	)
 }

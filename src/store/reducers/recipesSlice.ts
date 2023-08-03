@@ -1,9 +1,10 @@
+import { IRecipe } from './../../types/index';
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { IRecipe } from '../../types';
+
 
 interface RecipeState  {
 	recipesList: IRecipe[],
-	activeRecipe: IRecipe | null | any,
+	activeRecipe: IRecipe | null,
 	loading: boolean,
 	error: null | string,
 }
@@ -38,7 +39,7 @@ export const recipesSlice = createSlice({
 				state.recipesList = state.recipesList.filter(recipe => recipe.id !== action.payload);
 			},
 			setActiveRecipe (state, action: PayloadAction<number>) {
-            if (action.payload === undefined) state.activeRecipe = null;
+             if (action.payload === undefined) state.activeRecipe = null;
                const countRecipes = state.recipesList.length
 				for(let i = 0; i < countRecipes; i++){
                if (state.recipesList[i].id === action.payload){
@@ -48,7 +49,6 @@ export const recipesSlice = createSlice({
             }
 			},
 		},
-	
 		extraReducers: {
 			[fetchRecipes.pending.type]: (state) => {
 				state.loading = true;

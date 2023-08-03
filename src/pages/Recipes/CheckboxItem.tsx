@@ -29,7 +29,7 @@ export const CheckboxItem = (props:CheckboxItemProps ) => {
 				inputProps={{ 'aria-label': 'controlled' }}
 			/>
 			{(checked === true) 
-			? <Button size='small' variant='contained' startIcon={<DeleteIcon />} onClick={removeTask}>Delete</Button> 
+			? <Button size='small' variant='contained' endIcon={<DeleteIcon />} onClick={removeTask}>Delete</Button> 
 			:  null 
 			}
 		</>

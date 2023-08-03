@@ -14,13 +14,13 @@ export const Recipe = ()=> {
 		if(id) dispatch(setActiveRecipe(parseInt(id)))
 	},[dispatch, id])
 
-	const recipe = useAppSelector(state => state.recipes.activeRecipe);
+	 const recipe = useAppSelector(state => state.recipes.activeRecipe);
 	
-	return (
+		return (
 		<>
 			<div>{id}</div>
 			<div>{recipe && recipe.name}</div>
-			<div>{recipe && recipe.description} </div>
+			<div>{recipe && recipe.description} </div>	
 		</>
 	)
 }

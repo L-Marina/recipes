@@ -2,14 +2,9 @@ import { useAppDispatch } from '../hooks';
 import { removeFromOrder, incrementQuantity, decrementQuantity } from '../store/reducers/basketSlice';
 import { ListItem, Typography, IconButton, Stack } from '@mui/material';
 import { Close, AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
+import { RecipeItem } from '../store/reducers/basketSlice';
 
-type RecipeItemProps ={
-	id: number;
-	name: string;
-	quantity: number;
-}
-
-export const BasketItem = ({id, name, quantity=0 }:RecipeItemProps) => {
+export const BasketItem = ({id, name, quantity=0 }: RecipeItem) => {
 	const dispatch = useAppDispatch();
 
 	const removeOrder = () => dispatch(removeFromOrder(id));
