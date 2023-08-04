@@ -4,7 +4,7 @@ import { ListItem, Typography, IconButton, Stack } from '@mui/material';
 import { Close, AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
 import { RecipeItem } from '../store/reducers/basketSlice';
 
-export const BasketItem = ({id, name, quantity=0 }: RecipeItem) => {
+export const BasketItem = ({id, name, quantity=0, price }: RecipeItem) => {
 	const dispatch = useAppDispatch();
 
 	const removeOrder = () => dispatch(removeFromOrder(id));
@@ -13,6 +13,9 @@ export const BasketItem = ({id, name, quantity=0 }: RecipeItem) => {
 		<ListItem>
 			<Typography variant='body1' color='secondary'>
 				{name}
+			</Typography>
+			<Typography variant='body1' color='primary' sx={{p:'10px'}}> 
+				{price} UAH
 			</Typography>
 			<IconButton
 				onClick={removeOrder}>

@@ -5,21 +5,19 @@ import { CheckboxItem } from './CheckboxItem';
 import { Link,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
 
-export type RecipeItemProps={
-	id: number;
-	name: string;
-	description: string;
- 	image_url: string;
-}
 
 export const RecipesItem: React.FC<any> = (props) => {
 	const dispatch = useAppDispatch();
-	const {id, name, description, image_url } = props.recipe;	
+	
+	const {id, name, description, image_url, ibu } = props.recipe;
+
 	const path = '/recipes/' + id;
 
 	const quantity = 0;
 
-	const addOrder = () => dispatch(addToOrder({id, name, quantity}))
+	const price = ibu * 3;
+
+	const addOrder = () => dispatch(addToOrder({id, name, quantity, price}))
 
 	return(
 			<Grid item sx={{m:'10px'}} >
@@ -37,6 +35,9 @@ export const RecipesItem: React.FC<any> = (props) => {
 							<div>{description }</div>
 						</Typography>
 						<Typography  component='div' align='right'>
+							<Typography component='span' variant='h6' align='left' color='primary'>
+								<div>{price} UAH</div>
+							</Typography>
 							<Link 
 								underline='hover'
 								variant='h6' 
