@@ -3,7 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export type RecipeItem ={
 	id: number;
 	name: string;
-	quantity:number;
+	quantity: number;
+	price: number;
 }
 
 type BasketState = {
