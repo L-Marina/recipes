@@ -2,9 +2,9 @@ import React from 'react';
 import { useAppDispatch } from '../../hooks';
 import { addToOrder } from '../../store/reducers/basketSlice';
 import { CheckboxItem } from './CheckboxItem';
-import { Link,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } from '@mui/material';
+import { Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
-
+import { Link } from 'react-router-dom';
 
 export const RecipesItem: React.FC<any> = (props) => {
 	const dispatch = useAppDispatch();
@@ -38,11 +38,9 @@ export const RecipesItem: React.FC<any> = (props) => {
 							<Typography component='span' variant='h6' align='left' color='primary'>
 								<div>{price} UAH</div>
 							</Typography>
-							<Link 
-								underline='hover'
-								variant='h6' 
-								href={path}>Show more
-							</Link>	
+							<Link to={path}>
+								Show more
+							</Link>
 						</Typography>
 					</CardContent>
 					<CardActions sx={{display:'flex', justifyContent:'space-around'}}>
