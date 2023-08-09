@@ -14,9 +14,7 @@ export const RecipesList = () => {
 				{recipes.filter((recipe, index) => index < 15 )
 					.map ((recipe, index) => {
 						return (
-							<RecipesItem
-								key={recipe.id}
-									recipe = {recipe}/>
+							<RecipesItem key={recipe.id} recipe ={recipe}/>
 						)
 					})
 				}		

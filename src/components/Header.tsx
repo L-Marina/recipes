@@ -20,7 +20,7 @@ export const Header = () => {
 
 	return (
 		<AppBar position='static'>
-			<Toolbar sx={{display: 'flex', m:'5px', }} >
+			<Toolbar sx={{display: 'flex', m:'5px'}} >
 				<Grid container spacing={1} direction={'column'}>
 					<Grid container item xs={12} >
 						<Typography variant='h6' component='div'  sx={{ flexGrow: 1, mt: '5px', }}>  

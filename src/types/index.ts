@@ -3,19 +3,19 @@ type VolumeType = {
 	unit: string,
 }
 type MashTempType = {
-	temp: VolumeType,
+	temp?: VolumeType,
 	duration: number,
 }
 type FermentationType ={
-	temp: VolumeType,
+	temp?: VolumeType,
 	twist: null,
  }
 type MethodType = {
-	mash_temp: Array<MashTempType>,
+	mash_temp?: Array<MashTempType>,
 	fermentation: FermentationType,
  }
 type IngredientsType = {
-	malt: Array<MaltType>
+	malt?: Array<MaltType>
 	hops: Array<HopsType>
 	yeast: string,
 }

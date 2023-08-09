@@ -2,8 +2,9 @@ import React from 'react';
 import { useAppDispatch } from '../../hooks';
 import { addToOrder } from '../../store/reducers/basketSlice';
 import { CheckboxItem } from './CheckboxItem';
-import { Link,  Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } from '@mui/material';
+import { Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } from '@mui/material';
 import { AddShoppingCart } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 
 export const RecipesItem: React.FC<any> = (props) => {
@@ -21,7 +22,14 @@ export const RecipesItem: React.FC<any> = (props) => {
 
 	return(
 			<Grid item sx={{m:'10px'}} >
-				<Card sx={{ height: '100%', maxWidth: 340, p:'10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}} variant='outlined'>
+				<Card sx={{ height: '100%', 
+						maxWidth: 340, 
+						p:'10px', 
+						display: 'flex', 
+						flexDirection: 'column', 
+						justifyContent: 'space-around', 
+						backgroundColor:'primary.light'}} 
+						variant='outlined'>
 					<CardMedia
 						sx={{ height: 150, objectFit:'contain'}}
 						image={image_url}
@@ -38,11 +46,9 @@ export const RecipesItem: React.FC<any> = (props) => {
 							<Typography component='span' variant='h6' align='left' color='primary'>
 								<div>{price} UAH</div>
 							</Typography>
-							<Link 
-								underline='hover'
-								variant='h6' 
-								href={path}>Show more
-							</Link>	
+							<Link to={path}>
+								Show more
+							</Link>
 						</Typography>
 					</CardContent>
 					<CardActions sx={{display:'flex', justifyContent:'space-around'}}>
