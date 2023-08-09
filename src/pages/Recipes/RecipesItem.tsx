@@ -6,6 +6,7 @@ import { Grid,  Card, CardActions, CardMedia, CardContent, Typography, Button } 
 import { AddShoppingCart } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
+
 export const RecipesItem: React.FC<any> = (props) => {
 	const dispatch = useAppDispatch();
 	
@@ -21,7 +22,14 @@ export const RecipesItem: React.FC<any> = (props) => {
 
 	return(
 			<Grid item sx={{m:'10px'}} >
-				<Card sx={{ height: '100%', maxWidth: 340, p:'10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}} variant='outlined'>
+				<Card sx={{ height: '100%', 
+						maxWidth: 340, 
+						p:'10px', 
+						display: 'flex', 
+						flexDirection: 'column', 
+						justifyContent: 'space-around', 
+						backgroundColor:'primary.light'}} 
+						variant='outlined'>
 					<CardMedia
 						sx={{ height: 150, objectFit:'contain'}}
 						image={image_url}

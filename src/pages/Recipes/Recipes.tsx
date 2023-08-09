@@ -17,8 +17,8 @@ export const Recipes = () => {
 
 	return (
 		<>
-			<Container sx={{marginBottom:'70px'}}>
-				<Typography variant='h3' color='white' textAlign='center' sx={{m:'20px'}}>Recipes of beers</Typography>
+			<Container sx={{marginBottom:'70px'}} >
+				<Typography variant='h3' color='primary.light' textAlign='center' sx={{m:'20px'}}>Recipes of beers</Typography>
 				{loading && <Progress/>}
 				{error && <Typography variant='h3' color='primary' textAlign='center' sx={{mt:'15px'}}>An error occurred: {error}</Typography>} 
 				<RecipesList/>

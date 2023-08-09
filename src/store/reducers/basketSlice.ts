@@ -45,9 +45,12 @@ export const basketSlice = createSlice({
 		removeFromOrder (state, action: PayloadAction<number>) {
 			state.cart = state.cart.filter(recipe => recipe.id !== action.payload);
 		},
+		clearBasket (state, action: PayloadAction<RecipeItem[]>) {
+			state.cart = [];
+		},
 	}
 })
 
-export const {addToOrder, incrementQuantity, decrementQuantity, removeFromOrder} = basketSlice.actions;
+export const {addToOrder, incrementQuantity, decrementQuantity, removeFromOrder, clearBasket} = basketSlice.actions;
 
 export default basketSlice.reducer;

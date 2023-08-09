@@ -3,6 +3,7 @@ import { Outlet} from 'react-router-dom';
 import { Header } from './Header';
 import { Footer }  from './Footer';
 import { Box, Container } from '@mui/material';
+import Background from './Background';
 
 
 const Layout = () => {
@@ -11,15 +12,16 @@ const Layout = () => {
 				sx={{display:'flex', 
 				flexDirection:'column',
 				width: '100%',
-				minHeight: '100vw',
+				minHeight: '100%',
 				maxWidth: '1400px',
 				margin: '0px auto',
-				backgroundColor:'grey',
+				backgroundColor: 'grey',
 				overflow:'hidden',
 				}}
 			>
 				<Header />
-				<Container sx={{height: '100%', overflow:'hidden'}} />
+				<Background/>
+				<Container sx={{height: '100%', overflow:'hidden'}}/>
 				<Outlet /> 
 				<Footer />
 			</Box>

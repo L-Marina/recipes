@@ -1,8 +1,10 @@
 import React from 'react';
 import { BasketItem } from './BasketItem';
-import { useAppSelector } from '../hooks';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { clearBasket } from '../store/reducers/basketSlice';
 import { ShoppingBasket } from '@mui/icons-material';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@mui/material';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography, Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 type BasketProps={
 	cartOpen: boolean;
@@ -13,6 +15,9 @@ type BasketProps={
 export const Basket = ({cartOpen, closeCart}: BasketProps) => {
 	const order = useAppSelector(state => state.basket.cart);
 
+	const dispatch = useAppDispatch();
+	const basketClear = () => dispatch(clearBasket(order));
+		
 	const getTotalQuantity = () => {
 		let total = 0
 		order.forEach(item => {
@@ -27,7 +32,7 @@ export const Basket = ({cartOpen, closeCart}: BasketProps) => {
 			open={cartOpen}
 			onClose={closeCart}
 		>
-			<List sx={{width:'300px'}} >
+			<List sx={{width:'300px'}}  >
 				<ListItem >
 					<ListItemIcon>
 						<ShoppingBasket color='primary'/>
@@ -55,10 +60,15 @@ export const Basket = ({cartOpen, closeCart}: BasketProps) => {
 										return acc + item.price * item.quantity;
 									}, 0)}{' '}
 									UAH.
-						</Typography>
-					 </ListItem>
+							</Typography>
+						</ListItem>
+						<Divider/>
+						<ListItem >
+							<Button size='small' variant='contained' endIcon={<DeleteIcon />} onClick={ basketClear }>Clear the basket</Button> 
+						</ListItem>
 					</>
-				)}
+					)
+				}
 			</List>
 		</Drawer>
 	)

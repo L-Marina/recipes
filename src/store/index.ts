@@ -1,13 +1,34 @@
 import { configureStore } from '@reduxjs/toolkit';
-import recipesReducer from './reducers/recipesSlice';
-import basketReducer from './reducers/basketSlice';
+import { persistStore, 
+	persistReducer,  
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { rootReducer } from './reducers/rootReducer';
+
+
+const persistConfig = {
+	key: 'root',
+	storage,
+ }
+  
+ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
-	reducer: {
-		recipes: recipesReducer,
-		basket: basketReducer,
-	},
+	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+	getDefaultMiddleware({
+	  serializableCheck: {
+		 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+	  },
+	}),
 })
+
+export const persistor = persistStore(store);
 
 export default store;
 
