@@ -6,7 +6,6 @@ import App from './App';
 import './index.css';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import { Progress } from './components/Progress';
 
 const theme = createTheme({
 	palette: {
@@ -28,7 +27,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<ThemeProvider theme ={theme}>
 		<Provider store={store}>
-			<PersistGate loading={<Progress/>} persistor={persistor}>
+			<PersistGate loading={null} persistor={persistor}>
 				<App />
 			</PersistGate>
 		</Provider>

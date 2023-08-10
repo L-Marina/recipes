@@ -48,11 +48,9 @@ export const SearchFormDialog = () => {
 				size='medium'
 				onChange={handleChange}
 			/>
-			<Button  size='small' onClick={handleClickOpen}>
-				<IconButton type='button' >
+				<IconButton type='button' size='small' onClick={handleClickOpen}>
 					<SearchIcon />
 				</IconButton>	
-		 	</Button>
 		 	<Dialog open={open} onClose={handleClose}>
 				<DialogTitle>Search Recipe</DialogTitle>
 				<DialogContent>

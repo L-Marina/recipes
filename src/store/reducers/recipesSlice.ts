@@ -48,23 +48,22 @@ export const recipesSlice = createSlice({
                 }
 			},
 		},
-
-		extraReducers: {
-			[fetchRecipes.pending.type]: (state) => {
+		extraReducers: (builder) => {
+			builder.addCase(fetchRecipes.pending,(state) => {
 				state.loading = true;
-			},
-
-			[fetchRecipes.fulfilled.type]: (state, action: PayloadAction<IRecipe[]>) => {
+				state.error = null;
+			});
+			builder.addCase(fetchRecipes.fulfilled,(state, action: PayloadAction<IRecipe[]>) => {
 				state.loading = false;
-				state.error = '';
-				state.recipesList = action.payload;
-			},
-			
-			[fetchRecipes.rejected.type]: (state, action: PayloadAction<string>) => {
-				state.loading = false;
-				state.error = action.payload;
-			},
-		}
+				 state.error = '';
+				 state.recipesList = action.payload;
+			});
+			builder.addCase(fetchRecipes.rejected,(state, action: PayloadAction<string | undefined>) => {
+				if (action.payload) {
+					state.error = action.payload;
+				} state.loading = false;
+			});
+		},
 	}
 )
 
