@@ -37,14 +37,14 @@ export const RecipesItem: React.FC<any> = (props) => {
 					/>
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='div' align='center'>
-							<div>{name}</div>
+							{name}
 						</Typography>
 						<Typography variant='body2' color='text.secondary'>
-							<div>{description }</div>
+							{description }
 						</Typography>
 						<Typography  component='div' align='right'>
-							<Typography component='span' variant='h6' align='left' color='primary'>
-								<div>{price} UAH</div>
+							<Typography component='div' variant='h6' align='left' color='primary'>
+								{price} UAH
 							</Typography>
 							<Link to={path}>
 								Show more

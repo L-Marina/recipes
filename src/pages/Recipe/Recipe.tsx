@@ -29,7 +29,7 @@ export const Recipe = ()=> {
 							<Typography gutterBottom variant='h5' component='div' align='center' color='primary'>
 								Name: {recipe && recipe.name}
 							</Typography>
-							<Typography variant='body2'>
+							<Typography variant='body2' component='div'>
 								<Typography>Tagline: {recipe && recipe.tagline}. </Typography>
 								<Typography>First_brewed: {recipe && recipe.first_brewed}. </Typography>
 								<Typography>Description: {recipe && recipe.description}. </Typography>
